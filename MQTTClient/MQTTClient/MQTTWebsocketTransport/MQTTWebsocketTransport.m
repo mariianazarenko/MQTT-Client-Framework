@@ -7,6 +7,7 @@
 //
 
 #import "MQTTWebsocketTransport.h"
+#import "SocketRocket/SocketRocket.h"
 #import <SocketRocket/SRWebSocket.h>
 #import "../MQTTLog.h"
 
