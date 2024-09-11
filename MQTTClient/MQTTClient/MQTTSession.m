@@ -67,10 +67,14 @@ NSString * const MQTTSessionErrorDomain = @"MQTT";
 }
 
 - (instancetype)init {
+    return [self init:[[MQTTCoreDataPersistence alloc] init]];
+}
+
+- (instancetype)init:(NSObject <MQTTPersistence> *)persistence {
     DDLogVerbose(@"[MQTTSession] init");
     self = [super init];
     self.txMsgId = 1;
-    self.persistence = [[MQTTCoreDataPersistence alloc] init];
+    self.persistence = persistence;
     self.subscribeHandlers = [[NSMutableDictionary alloc] init];
     self.unsubscribeHandlers = [[NSMutableDictionary alloc] init];
     self.publishHandlers = [[NSMutableDictionary alloc] init];

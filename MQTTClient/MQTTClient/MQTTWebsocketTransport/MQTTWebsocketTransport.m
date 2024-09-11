@@ -7,7 +7,6 @@
 //
 
 #import "MQTTWebsocketTransport.h"
-#import "SocketRocket/SocketRocket.h"
 #import <SocketRocket/SRWebSocket.h>
 #import "../MQTTLog.h"
 
@@ -40,7 +39,7 @@
     self.state = MQTTTransportOpening;
     
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[self endpointURL]];
-    urlRequest.SR_SSLPinnedCertificates = self.pinnedCertificates;
+//    urlRequest.SR_SSLPinnedCertificates = self.pinnedCertificates;
   
     [self.additionalHeaders enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
       [urlRequest addValue:obj forHTTPHeaderField:key];

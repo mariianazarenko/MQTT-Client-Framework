@@ -552,7 +552,15 @@ typedef void (^MQTTPublishHandler)(NSError *error);
  */
 - (MQTTSession *)init;
 
+/** initialises the MQTT session with specific data storage: in memory or core data
+ @return the initialised MQTTSession object
+ @code
+ #import "MQTTClient.h"
 
+ MQTTSession *session = [[MQTTSession alloc] init: [[MQTTInMemoryPersistence alloc] init]]];
+ @endcode
+ */
+- (MQTTSession *)init:(NSObject <MQTTPersistence> *)persistence;
 
 /** subscribes to a topic at a specific QoS level
  
